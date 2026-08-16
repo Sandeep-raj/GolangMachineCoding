@@ -47,9 +47,10 @@ func main() {
 	result := make(chan string)
 	for _, server := range servers {
 		go func() {
+			t := time.Now()
 			resp, err := query(ctx, server.name, server.delay)
 			if err != nil {
-				log.Print(err)
+				log.Print(err, " in ", time.Now().UnixMilli()-t.UnixMilli())
 			}
 
 			select {
