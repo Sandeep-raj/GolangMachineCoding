@@ -2,6 +2,11 @@ package main
 
 import "log"
 
+/*
+Generator → Stage 1 → Stage 2 → Stage 3 → Consumer
+              ch1       ch2       ch3
+*/
+
 func gen(nums ...int) chan int {
 	cout := make(chan int)
 
